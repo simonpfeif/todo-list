@@ -1,0 +1,128 @@
+/* === Variables === */
+:root {
+  --primary: #1976d2;
+  --primary-hover: #125aa0;
+  --background: #f9f9f9;
+  --task-bg: #f1f1f1;
+  --text-muted: #444;
+  --completed-text: gray;
+}
+
+/* === Layout === */
+body {
+  font-family: Arial, sans-serif;
+  background: var(--background);
+  margin: 0;
+  padding: 2rem;
+}
+
+.container {
+  max-width: 500px;
+  margin: auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* === Input === */
+.task-input {
+  display: flex;
+  gap: 0.5rem;
+}
+
+#task-input {
+  flex: 1;
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+/* === Buttons === */
+button:not(.toggle-btn),
+#add-task-btn,
+#task-list li button:not(.toggle-btn) {
+  padding: 0.5rem 0.8rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  transition: background-color 0.2s ease-in-out;
+  background-color: transparent;
+  color: var(--text-muted);
+  margin-left: 0.25rem;
+}
+
+#add-task-btn {
+  background-color: var(--primary);
+  color: white;
+}
+
+#add-task-btn:hover {
+  background-color: var(--primary-hover);
+}
+
+.toggle-btn {
+  width: 24px;
+  height: 24px;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  background: none;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.toggle-btn.completed {
+  border-color: #4caf50;
+  background-color: #4caf50;
+}
+
+.toggle-btn.completed::before {
+  content: '✔';
+  color: white;
+  font-size: 14px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* === Task List === */
+ul#task-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--task-bg);
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* === Completed Task === */
+.task-item.completed {
+  text-decoration: line-through;
+  color: var(--completed-text);
+  opacity: 0.7;
+}
+
+.task-item.completed:hover {
+  background-color: #e0e0e0;
+}
+
+.task-title {
+  flex: 1;
+  margin: 0 0.5rem;
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
